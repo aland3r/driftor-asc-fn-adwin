@@ -58,7 +58,7 @@ Os testes unitários conferem que, com a série de `Machine_Operating` das bases
 
 ## Tecnologias
 
-Python 3.12, Azure Functions (modelo v2, plano Consumption), Azure Service Bus, river (ADWIN), pytest, import-linter, GitHub Actions.
+Python 3.12, Azure Functions (modelo v2, plano Flex Consumption), Azure Service Bus, river (ADWIN), pytest, import-linter, GitHub Actions.
 
 ## Rodar localmente
 
