@@ -6,8 +6,8 @@ Azure Function do **Driftor ASC**, entrega 3 de Arquitetura e Soluções Cloud (
 
 | | URL |
 |---|---|
-| HTTP | `POST https://driftor-asc-fn-adwin.azurewebsites.net/api/adwin` |
-| Saúde | https://driftor-asc-fn-adwin.azurewebsites.net/api/health |
+| HTTP | `POST https://driftor-asc-fn-adwin-dsa6htarh3avfag4.brazilsouth-01.azurewebsites.net/api/adwin` |
+| Saúde | https://driftor-asc-fn-adwin-dsa6htarh3avfag4.brazilsouth-01.azurewebsites.net/api/health |
 | Fila de entrada | `analysis-requested` (Service Bus `driftor-asc-bus`) |
 | Fila de saída | `analysis-completed` |
 
