@@ -1,0 +1,39 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - name: testes unitários e de arquitetura
+        run: pytest -q
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: verifica publish profile
+        id: azure
+        run: echo "ok=${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE != '' }}" >> "$GITHUB_OUTPUT"
+      - name: publica na function app
+        if: steps.azure.outputs.ok == 'true'
+        uses: Azure/functions-action@v1
+        with:
+          app-name: driftor-asc-fn-adwin
+          package: .
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+          scm-do-build-during-deployment: true
+          enable-oryx-build: true

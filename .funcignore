@@ -1,0 +1,8 @@
+.git*
+.venv
+tests
+__pycache__
+.pytest_cache
+local.settings*.json
+requirements-dev.txt
+.importlinter

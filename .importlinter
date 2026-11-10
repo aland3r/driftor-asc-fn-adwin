@@ -1,0 +1,20 @@
+[importlinter]
+root_package = adwin
+
+[importlinter:contract:layers]
+name = Camadas da Clean Architecture
+type = layers
+layers =
+    adwin.infrastructure
+    adwin.application
+    adwin.domain
+
+[importlinter:contract:domain-pure]
+name = Domínio sem dependências externas
+type = forbidden
+source_modules =
+    adwin.domain
+    adwin.application
+forbidden_modules =
+    river
+    azure
